@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Nunito', ui-rounded, system-ui, sans-serif;
+  --font-body: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-ink: #134e4a;
+  --color-muted: #5b716e;
+  --color-surface: #f7fffc;
+  --color-panel: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background:
+    radial-gradient(ellipse 120% 80% at 10% -10%, #99f6e4 0%, transparent 45%),
+    radial-gradient(ellipse 90% 60% at 100% 0%, #a5f3fc 0%, transparent 40%),
+    linear-gradient(180deg, #ecfdf8 0%, #f0fdfa 40%, #f8fafc 100%);
+  background-attachment: fixed;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body.high-contrast {
+  background: #000;
+  color: #fff;
+}
+
+body.high-contrast .card-btn {
+  border: 3px solid #fff !important;
+  color: #fff !important;
+}
+
+:focus-visible {
+  outline: 3px solid #0d9488;
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.card-btn {
+  min-height: 120px;
+  min-width: 120px;
+  isolation: isolate;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    filter 120ms ease;
+}
+
+.card-btn:active,
+.card-btn.is-pressed {
+  transform: scale(0.96);
+  filter: brightness(0.95);
+}
+
+.card-btn:focus-visible {
+  outline: 4px solid #134e4a;
+  outline-offset: 4px;
+}
+
+@keyframes phrase-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.phrase-pop {
+  animation: phrase-in 220ms ease-out;
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(13, 148, 136, 0);
+  }
+}
+
+.speak-pulse {
+  animation: soft-pulse 1.2s ease-out;
+}
